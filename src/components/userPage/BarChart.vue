@@ -28,19 +28,6 @@ export default {
   name: "BarChart",
   data() {
     return {
-      width: 300,
-      heigth: 300,
-      x: 1,
-
-      // chartData: {
-      //   labels: ["first", "second", "third"],
-      //   datasets: [
-      //     {
-      //       label: 12,
-      //       data: this.values,
-      //     },
-      //   ],
-      // },
       options: {
         responsive: true,
         maintainAspectRatio: false,

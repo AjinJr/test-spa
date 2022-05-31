@@ -41,6 +41,7 @@ export default {
       firstAmount: 4,
       secondAmount: 3,
       thirdAmount: 400,
+      interval: null,
     };
   },
   components: { UserCoins, BarChart, UserValueChanger },
@@ -54,7 +55,7 @@ export default {
     },
     getUserValue(payload) {
       this.loading = true;
-      setTimeout(this.updateData(payload), 5000);
+      this.updateData(payload);
     },
     buyOrSell(payload) {
       if (payload.coin === "BTC") {
@@ -76,6 +77,23 @@ export default {
           this.thirdAmount -= Number(payload.amount);
         }
       }
+    },
+  },
+  watch: {
+    firstAmount: {
+      handler: function () {
+        if (this.firstAmount < 0) this.firstAmount = 0;
+      },
+    },
+    secondAmount: {
+      handler: function () {
+        if (this.secondAmount < 0) this.secondAmount = 0;
+      },
+    },
+    thirdAmount: {
+      handler: function () {
+        if (this.thirdAmount < 0) this.thirdAmount = 0;
+      },
     },
   },
 };

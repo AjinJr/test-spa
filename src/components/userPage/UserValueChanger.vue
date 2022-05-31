@@ -61,6 +61,7 @@ export default {
       sellValue: null,
     };
   },
+  emits: ["buyOrSell"],
   props: {
     amounts: {
       type: Array,

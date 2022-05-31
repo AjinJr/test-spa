@@ -109,17 +109,18 @@ export default {
     },
   },
   async mounted() {
-    // await this.$store.dispatch("getCurr", [
-    //   this.firstCoin,
-    //   this.secondCoin,
-    //   this.thirdCoin,
-    // ]);
-    // this.$emit("getUserValue", this.userValue);
     await this.updateData();
     this.interval = setInterval(this.updateData, 13000);
   },
   unmounted() {
     clearInterval(this.interval);
+  },
+  watch: {
+    userValue: {
+      handler: function () {
+        this.$emit("getUserValue", this.userValue);
+      },
+    },
   },
 };
 </script>
